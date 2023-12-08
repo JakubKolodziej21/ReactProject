@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
+import { loginUser } from '../../services/api';
+import { User } from '../../types';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log('Email:', email);
     console.log('Password:', password);
+
+    const user: User | null = await loginUser(email, password);
+    if(user) navigate("/main", { state: { email: user.email } });
 
     setEmail('');
     setPassword('');
