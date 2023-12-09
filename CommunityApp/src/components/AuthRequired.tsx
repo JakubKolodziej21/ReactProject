@@ -9,7 +9,8 @@ export default function AuthRequired()
 {
     const [action, setAction] = useState(<h1>Loading...</h1>);
     const location = useLocation();
-    let { email } = location.state;
+    let email: string;
+    if(location.state) email = location.state.email;
 
     useEffect(() => {
         const AuthObserver = async () => {

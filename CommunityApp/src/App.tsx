@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import './App.css'
 import Login from './pages/Login/Login';
 import AuthRequired from './components/AuthRequired';
-import Private from './pages/Private/Private';
+import ToDoList from './pages/ToDoList/ToDoList';
 
 export default function App() {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -10,7 +10,7 @@ export default function App() {
       <Route index element={<Login />} />
 
       <Route element={<AuthRequired />}>
-        <Route path='main' element={<Private />} />
+        <Route path='main' element={<ToDoList />} />
       </Route>
     </Route>
   ));
