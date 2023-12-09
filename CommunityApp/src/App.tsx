@@ -4,6 +4,7 @@ import Pinterest from './pages/Pinterest/Pinterest';
 import Login from './pages/Login/Login';
 import AuthRequired from './components/AuthRequired';
 import ToDoList from './pages/ToDoList/ToDoList';
+import Layout from './components/Layout';
 
 export default function App() {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -11,8 +12,10 @@ export default function App() {
       <Route index element={<Login />} />
 
       <Route element={<AuthRequired />}>
-        <Route path='main' element={<ToDoList />} />
-        <Route path='pinterest' element={<Pinterest />} />
+        <Route path='main' element={<Layout />}>
+          <Route index element={<ToDoList />} />
+          <Route path='pinterest' element={<Pinterest />} />
+        </Route>
       </Route>
     </Route>
   ));
