@@ -71,3 +71,8 @@ export const loginUser = async (email: string, password: string) =>
         return null;
     }
 }
+
+export const logoutUser = async (email: string) => {
+    document.cookie = `${email}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    console.log("User logout!");
+}
