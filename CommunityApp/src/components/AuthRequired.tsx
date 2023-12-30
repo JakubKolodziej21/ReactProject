@@ -5,6 +5,7 @@ import { User } from "../types";
 
 export const userContext = createContext<User | null>(null);
 
+
 export default function AuthRequired()
 {
     const [action, setAction] = useState(<h1>Loading...</h1>);
