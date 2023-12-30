@@ -31,3 +31,10 @@ export type Photo = {
     url: string;
     thumbnailUrl: string;
 }
+
+export type ToDoTaskType = {
+    userId: string;
+    id: number;
+    title: string;
+    completed: boolean;
+}
