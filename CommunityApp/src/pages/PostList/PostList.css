@@ -1,0 +1,40 @@
+h2 {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+.postContainer {
+    text-align: 'center';
+    padding: '20px';
+}
+.singlePostContainer {
+    background-color: darkseagreen;
+    border-radius: 20px;
+    margin: 20px;
+}
+ul {
+    list-style: none;
+    text-align: center;
+    padding: 20px;
+}
+li {
+    padding: 20px;
+    text-align: start;
+}
+button:hover {
+    font-weight: bold;
+    background-color: darkorange;
+    border: solid 2px black;
+    color: black;
+}
+.showButton{
+    padding: 10px;
+    font-weight: bold;
+    margin: 10px 0px 20px 0px;
+    background-color: black;
+    border: solid 2px darkorange;
+    color: darkorange;
+    border-radius: 25px;
+    cursor: pointer;
+}
