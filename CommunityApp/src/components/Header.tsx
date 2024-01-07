@@ -1,7 +1,29 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { userContext } from "./AuthRequired";
+import { logoutUser } from "../services/api";
 
 export default function Header()
 {
+    const user = useContext(userContext);
+    const navigate = useNavigate();
+
+    const logout = async () =>
+    {
+        try {
+            if(user?.email)
+            {
+                await logoutUser(user?.email);
+                navigate("/");
+            }else
+            {
+                throw new Error("No user email!");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return(
         <>
             <header>    
@@ -13,6 +35,7 @@ export default function Header()
                 <h2>React Project</h2>
                 <Link to="/main">ToDoList</Link>
                 <Link to="/main/pinterest">Pinterest</Link>
+                <a href="#" onClick={logout}>Logout user</a>
             </nav>
         </>
     )

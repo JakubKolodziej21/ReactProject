@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import './App.css'
 import Pinterest from './pages/Pinterest/Pinterest';
 import Login from './pages/Login/Login';
+// import PostList from './pages/PostList/PostList';
 import AuthRequired from './components/AuthRequired';
 import ToDoList from './pages/ToDoList/ToDoList';
 import Layout from './components/Layout';
@@ -19,9 +20,7 @@ export default function App() {
 
   return (
     <>
-       <RouterProvider router={router} />  
-      
-      </>
-    
+      <RouterProvider router={router} />
+    </>
   )
 }

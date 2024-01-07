@@ -1,0 +1,26 @@
+/* TaskList.css */
+
+.task-list {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .task-group {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-group h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .task-group .task {
+    margin: 10px 0;
+  }
+  

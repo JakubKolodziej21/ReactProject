@@ -71,3 +71,19 @@ export const loginUser = async (email: string, password: string) =>
         return null;
     }
 }
+
+export const logoutUser = async (email: string) => {
+    document.cookie = `${email}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    console.log("User logout!");
+}
+
+export const getUserToDoList = async (userId: number) => {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`);
+        const todos = await response.json();
+        return todos;
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+}
