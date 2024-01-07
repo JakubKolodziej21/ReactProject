@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { loginUser } from '../../services/api';
 import { User } from '../../types';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -22,29 +23,26 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
+    <div className='login-form-container'>
+      <form className='login-form' onSubmit={handleSubmit}>
+        <label htmlFor='email'> Email:
           <input
             type="email"
+            id='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        <br />
-        <label>
-          Password:
+        <label htmlFor='password'> Password:
           <input
             type="password"
+            id='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <br />
         <button type="submit">Login</button>
       </form>
     </div>
