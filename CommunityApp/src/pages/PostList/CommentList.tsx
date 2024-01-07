@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./CommentList.css";
-
-interface Comment {
-  postId: number;
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-}
-
-interface CommentListProps {
-  postId: number;
-}
+import { Comment, CommentListProps } from '../../types';
 
 const CommentList: React.FC<CommentListProps> = ({ postId }) => {
   const [comments, setComments] = useState<Comment[]>([]);
@@ -32,7 +21,7 @@ const CommentList: React.FC<CommentListProps> = ({ postId }) => {
 
   return (
     <div>
-      <h3>Komentarze dla postu nr {postId}:</h3>
+      <h3>Comments for post number: {postId}</h3>
       <ul>
         {comments.map((comment) => (
           <li key={comment.id}>

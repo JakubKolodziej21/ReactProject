@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CommentList from "./CommentList";
 import "./PostList.css";
-
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+import { userContext } from '../../components/AuthRequired';
+import { Post } from '../../types';
 
 const PostList: React.FC = () => {
+  const User = useContext(userContext);
   const [posts, setPosts] = useState<Post[]>([]);
   const [visibleComments, setVisibleComments] = useState<{ [postId: number]: boolean }>({});
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${User?.id}/posts`);
         const data = await response.json();
         setPosts(data);
       } catch (error) {
@@ -36,7 +32,7 @@ const PostList: React.FC = () => {
 
   return (
     <div className="postsContainer">
-      <h2>Lista postów</h2>
+      <h2>Posts list</h2>
       <ul>
         {posts.map((post) => (
           <div className='singlePostContainer' key={post.id}>
@@ -45,7 +41,7 @@ const PostList: React.FC = () => {
               <strong>{post.title}</strong>
               <p>{post.body}</p>
               <button className = 'showButton' onClick={() => handleShowCommentsClick(post.id)}>
-                {visibleComments[post.id] ? 'Ukryj komentarze' : 'Pokaż komentarze'}
+                {visibleComments[post.id] ? 'Hide comments' : 'Show comments'}
               </button>
               {visibleComments[post.id] && <CommentList postId={post.id} />}
             </li>

@@ -1,0 +1,25 @@
+.header-navigation
+{
+    display: flex;
+    justify-content: space-between
+}
+
+.logo
+{
+    display: flex;
+    align-items: center;
+}
+
+.logo img
+{
+    width: 50px;
+}
+
+.links a
+{
+    padding: 2.5em;
+    text-decoration: none;
+    font-size: 1.15em;
+    color: #3b1d12;
+    font-weight: 600;
+}
