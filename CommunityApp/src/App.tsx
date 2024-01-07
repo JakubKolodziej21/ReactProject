@@ -6,18 +6,15 @@ import Login from './pages/Login/Login';
 import AuthRequired from './components/AuthRequired';
 import ToDoList from './pages/ToDoList/ToDoList';
 import Layout from './components/Layout';
+import Albums from './pages/Albums/Albums';
 
 export default function App() {
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path="/">
-      <Route index element={<Login />} />
+    <Route path='/'>
 
-      <Route element={<AuthRequired />}>
-        <Route path='main' element={<Layout />}>
-          <Route index element={<ToDoList />} />
-          <Route path='pinterest' element={<Pinterest />} />
-        </Route>
-      </Route>
+      <Route index element={<Albums/>}/>
+      <Route path='/pinterest'element={<Pinterest/>}/>
+
     </Route>
   ));
 
