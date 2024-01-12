@@ -4,15 +4,12 @@ import { useNavigate } from "react-router-dom"
 import "./Albums.css"
 import { Album, User } from "../../types";
 
-
-
 export default function Albums(){
     const User: (User | null) = useContext(userContext);
     const navigate = useNavigate();
     const [albums,setAlbums] = useState<Album[]>([]);
     useEffect(() => {
         async function GetUserAlbums() {
-          
             try {
                 if(!User)throw new Error("No User")
                 const response= await fetch('https://jsonplaceholder.typicode.com/users/'+User?.id+'/albums');
@@ -37,15 +34,16 @@ export default function Albums(){
             </div>
             </div>
         )
-    })
-return(
-    <div>
-        <div className="SiteAlbums">
-            <h2>My Albums:</h2>
-            <div className="albumscontainer">
-            {albumsElement}
+    });
+
+    return (
+        <div>
+            <div className="SiteAlbums">
+                <h2>My Albums:</h2>
+                <div className="albumscontainer">
+                {albumsElement}
+                </div>
             </div>
         </div>
-    </div>
-)
+    )
 }

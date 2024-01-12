@@ -51,6 +51,7 @@ export default function AuthRequired()
 
             } catch (error) {
                 console.log(error);
+                navigate("/");
             }
         }
 
